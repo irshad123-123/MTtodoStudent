@@ -26,7 +26,7 @@
     </div>
     <div class="col-md-8">
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-bordered" *ngIf = 'stdArr.length > 0; else : noStd'>
                 <thead>
                     <tr>
                         <th>Sr No</th>
@@ -56,6 +56,9 @@
                     </tr>
                 </tbody>
             </table>
+            <ng-template #noStd>
+                <p class="alert alert-success">There is no Student detials !!!</p>
+            </ng-template>
         </div>
     </div>
 </div>
