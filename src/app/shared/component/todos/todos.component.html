@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6">
+        <h2>Add Todos</h2>
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <input #onTodo class="form-control" placeholder="Add Todos">
+                </div>
+                <button (click) = 'onAddTodo()'
+                *ngIf = '!isEditMode'
+                class="btn-block" mat-raised-button color="primary">Add Todos</button>
+                <button (click) = 'onUpdateTodo()'
+                *ngIf = 'isEditMode'
+                class="btn-block" mat-raised-button color="primary">Update Todos</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li
+            *ngFor = 'let todo of todoArr'
+            class="list-group-item d-flex justify-content-between align-items-center">
+                <strong>{{todo.todoItem}}</strong>
+                <div>
+                    <button
+                    (click) = 'onEditTodo(todo)'
+                    class="mr-2" mat-raised-button color="primary">Edit</button>
+                    <button
+                    (click) = 'onRemoveTodo(todo)'
+                    mat-raised-button color="warn">Remove</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
